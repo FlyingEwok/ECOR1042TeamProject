@@ -208,3 +208,4 @@ def sort_books_category(dict: dict) -> list:
         __printBooks(sortedDict[genre], genre) # Print the books in a fancy format
     sortedDictList = [sortedDict] # Put the dictionary into a list
     return sortedDictList # Return the list
+    
