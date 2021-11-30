@@ -4,6 +4,9 @@
 # Dylan Fortier 101221463
 # Spencer Green 101196310
 
+# PLEASE UPDATE YOUR PYTHON VERSION TO 3.10 IF YOU HAVEN'T ALREADY!!!!! PYTHON VERSION 3.10 IS CRUCIAL FOR THE CODE TO RUN!!!
+
+# Imports
 from T55_P1_load_data import load_dataset
 from T55_P3_sorting import sort_books_title, sort_books_ascending_rate, sort_books_descending_rate, sort_books_publisher, sort_books_category, sort_books_pageCount
 from typing import Callable
@@ -40,7 +43,7 @@ def __checkPythonVersion() -> None:
 # User Input Functions
 def runProgram() -> None:
     """Written by Nicholas Garth 101227727
-    Runs the interaction hub of the program
+    Runs the interaction hub of the program -- (NEEDS PYTHON 3.10)
     >>> runProgram()
 
     1- Command Line L)oad file
@@ -58,7 +61,7 @@ def runProgram() -> None:
     """
     # Check what Python version the user is running and if running an old version terminate and tell them to upgrade
     __checkPythonVersion() 
-       
+
     # Keep running the program until user quits
     while True:
         print("\n1- Command Line L)oad file\n2- Command Line A)dd book\n3- Command Line R)emove book\n4- Command Line F)ind book by title\n5- Command Line NC) Number of books in a category\n6- Command Line CA) Categories for an author\n7- Command Line CB) Categories for a book title\n8- Command Line G)et book\n9- Command Line S)ort book\n10-Command line Q)uit")
@@ -92,7 +95,7 @@ def runProgram() -> None:
 # Function 9
 def sortBookCall(bookDict: dict) -> None:
     """Written by Nicholas Garth 101227727
-    Asks user what sorting command they want to run on their dictionary
+    Asks user what sorting command they want to run on their dictionary  -- (NEEDS PYTHON 3.10)
     >>> sortBookCall(bookDict)
     T)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn
     Enter the upper-case letter to the left of the bracket of the option you want:
