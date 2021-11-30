@@ -6,6 +6,8 @@ from T55_P1_load_data import load_dataset
 import time
 import sys
 
+# PLEASE UPDATE YOUR PYTHON VERSION TO 3.10 IF YOU HAVEN'T ALREADY!!!!! PYTHON VERSION 3.10 IS CRUCIAL FOR THE CODE TO RUN!!!
+
 # Helper Functions
 def __invalidCommand() -> None:
     """Written by Nicholas Garth 101227727
@@ -32,7 +34,7 @@ def sortBookCall(bookDict: dict) -> None:
     # Check Python Version
     __checkPythonVersion()
 
-    # Keep running the program until user returns to previous menu
+    # Keep running the program until user returns to previous menu (In this case previous menu is non existent so program ends)
     while True:
         print("\nT)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn")
         userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
