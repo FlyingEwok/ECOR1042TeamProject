@@ -9,7 +9,7 @@
 # Imports
 from T55_P1_load_data import load_dataset
 from T55_P3_sorting import sort_books_title, sort_books_ascending_rate, sort_books_descending_rate, sort_books_publisher, sort_books_category, sort_books_pageCount
-from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate, print_dictionary_category, get_author_categories, all_categories_for_book_title
+from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate, print_dictionary_category, get_author_categories, all_categories_for_book_title, add_book , remove_book , find_books_by_title
 from typing import Callable
 import time
 import sys
@@ -42,9 +42,29 @@ def __checkPythonVersion() -> None:
         sys.exit()
 
 def __checkcategoryexists(userinput:str)->bool:
+    """Wrote by: Dylan Fortier 101221463
+    Checks if a category exists in a dictionary"""
     for category in bookDict:
         if userinput == category:
             return True
+
+def __book_info() -> tuple:
+        """Written by: Divya Dushyanthan 101221637
+        Returns a tuple for the info inputted, used in add book function command
+        
+        >>> book_info()
+        (Old Yeller, Fred Gipson, 4.7, HarperCollins, Fiction, 144, Language)
+        """
+        title = input("Enter the title of the book you would like to add: ")
+        author = input("Enter the author of the book you would like to add: ")
+        rating = float(input("Enter the rating of the book you would like to add: "))
+        publisher = input("Enter the publisher of the book you would like to add: ")
+        genre = input("Enter the genre of the book you would like to add: ")
+        pageCount = int(input("Enter the page count of the book you would like to add: "))
+        language = input("Enter the language of the book you would like to add: ")
+        info = (title, author, rating, publisher, genre, pageCount, language)
+
+        return info
 
 # User Input Functions
 def runProgram() -> None:
@@ -76,11 +96,11 @@ def runProgram() -> None:
             case 'L':
                 bookDict = load_dict()
             case 'A':
-                pass # Replace pass with function associated
+                __bookLoadCheck(command_add)
             case 'R':
-                pass # Replace pass with function associated
+                __bookLoadCheck(command_remove)
             case 'F':
-                pass # Replace pass with function associated
+                __bookLoadCheck(command_find)
             case 'NC':
                 __bookLoadCheck(call_print_dictionary_category)
             case 'CA':
@@ -103,6 +123,29 @@ def load_dict() -> None:
         load_command = input("Enter the load data set you wish to enter: ")
         global bookDict # make bookDict global so it can be used in any function
         bookDict = load_dataset(load_command)
+        print("Dataset loaded")
+        time.sleep(1)
+
+# Function 2
+def command_add(book_dict : dict) -> None:
+    """Written by: Divya Dushyanthan 101221637
+    Executes add_book"""
+    add_book(book_dict, __book_info())
+
+# Function 3
+def command_remove(book_dict : dict) -> None:
+    """Written by: Divya Dushyanthan 101221637
+    Removes a entry from dictionary given the users request"""
+    title = input("Enter the title of the book you would like to remove: ")
+    category = input("Enter the category of the book you would like to remove: ")
+    r_command = remove_book(title,category, book_dict)
+
+# Function 4
+def command_find(book_dict : dict)-> None:
+    """Written by: Divya Dushyanthan 101221637
+    Finds a book based on title given users request"""
+    title = input("Enter the title of the book you would like to find: ")
+    f_command = find_books_by_title(title, book_dict) 
 
 # Function 5
 def call_print_dictionary_category(bookDict: dict) -> None:
@@ -140,7 +183,7 @@ def get_book_call(book_dict: dict) -> None:
     while True:
         print("\nR)ate A)uthor P)ublisher C)ategory CT)Category and Title CR)Category and Rate RE)turn.")
         user_input = input("Enter an upper-case letter seen above to determine the way books are to be retrieved: " )
-        match user_input:
+        match user_input.upper():
             case 'R':
                 rate_input = input("Enter the desired book rating: ")
                 get_books_by_rate(float(rate_input), book_dict)
