@@ -16,34 +16,24 @@ def __invalidCommand() -> None:
     time.sleep(1) # Make it sleep so user can read it before it gets pushed up
     pass
 
-def __checkPythonVersion() -> None:
-    """Written by Nicholas Garth 101227727
-    Check the version of Python the user is running and terminate if they aren't"""
-    if sys.version_info < (3, 10):
-        print('Please upgrade your Python version to 3.10.0 or higher')
-        sys.exit()
-
 # Sort Book Call Function
 def sortBookCall(bookDict: dict) -> None:
     """Written by Nicholas Garth 101227727
-    Asks user what sorting command they want to run on their dictionary
+    Asks user what sorting command they want to run on their dictionary  -- (NEEDS PYTHON 3.10)
     >>> sortBookCall(bookDict)
     T)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn
     Enter the upper-case letter to the left of the bracket of the option you want:
     """
-    # Check Python Version
-    __checkPythonVersion()
-
-    # Keep running the program until user returns to previous menu (In this case previous menu is non existent so program ends)
+    # Keep running the program until user returns to previous menu
     while True:
-        print("\nT)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn")
+        print("\nT)itle\tR)ate\tP)ublisher\tC)ategory\tPA)ageCount\tRE)turn")
         userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
         match userInput.upper():
             case 'T':
                 sort_books_title(bookDict)
             case 'R':
                 while True: # Ask the user if they want ascending or descending order
-                    print("\nA)scending   D)escending    RE)turn")
+                    print("\nA)scending\tD)escending\tRE)turn")
                     userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
                     match userInput.upper():
                         case 'A':
