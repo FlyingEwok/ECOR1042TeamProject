@@ -69,8 +69,8 @@ def runProgram() -> None:
         userInput = input("\nEnter the upper-case letter to the left of the bracket of the option you want: ")
         match userInput.upper():
             case 'L':
-                global bookDict # make bookDict global so it can be used in any function
-                bookDict = load_dataset('Google_Books_Dataset.csv') # REPLACE WHAT THIS VAR = WITH THE LOADFILE FUNCTION!!!!!
+                #global bookDict # make bookDict global so it can be used in any function
+                bookDict = load_dict() #load_dataset('Google_Books_Dataset.csv') # REPLACE WHAT THIS VAR = WITH THE LOADFILE FUNCTION!!!!!
             case 'A':
                 pass # Replace pass with function associated
             case 'R':
@@ -92,6 +92,11 @@ def runProgram() -> None:
                 break
             case _:
                 __invalidCommand()
+
+def load_dict() -> None:
+        load_command = input("Enter the load data set you wish to enter: ")
+        global bookDict
+        bookDict = load_dataset(load_command)
 
 # Function 8
 def get_book_call(book_dict: dict) -> None:
