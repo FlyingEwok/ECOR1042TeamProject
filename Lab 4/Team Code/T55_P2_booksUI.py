@@ -9,7 +9,7 @@
 # Imports
 from T55_P1_load_data import load_dataset
 from T55_P3_sorting import sort_books_title, sort_books_ascending_rate, sort_books_descending_rate, sort_books_publisher, sort_books_category, sort_books_pageCount
-from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate
+from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate, print_dictionary_category, get_author_categories, all_categories_for_book_title
 from typing import Callable
 import time
 import sys
@@ -41,6 +41,11 @@ def __checkPythonVersion() -> None:
         print('Please upgrade your Python version to 3.10.0 or higher')
         sys.exit()
 
+def __checkcategoryexists(userinput:str)->bool:
+    for category in bookDict:
+        if userinput == category:
+            return True
+
 # User Input Functions
 def runProgram() -> None:
     """Written by Nicholas Garth 101227727
@@ -69,8 +74,7 @@ def runProgram() -> None:
         userInput = input("\nEnter the upper-case letter to the left of the bracket of the option you want: ")
         match userInput.upper():
             case 'L':
-                #global bookDict # make bookDict global so it can be used in any function
-                bookDict = load_dict() #load_dataset('Google_Books_Dataset.csv') # REPLACE WHAT THIS VAR = WITH THE LOADFILE FUNCTION!!!!!
+                bookDict = load_dict()
             case 'A':
                 pass # Replace pass with function associated
             case 'R':
@@ -78,25 +82,51 @@ def runProgram() -> None:
             case 'F':
                 pass # Replace pass with function associated
             case 'NC':
-                pass # Replace pass with function associated
+                __bookLoadCheck(call_print_dictionary_category)
             case 'CA':
-                pass # Replace pass with function associated
+                __bookLoadCheck(call_get_author_categories)
             case 'CB':
-                pass # Replace pass with function associated
+                __bookLoadCheck(call_all_categories_for_book_title)
             case 'G':
                 __bookLoadCheck(get_book_call)
             case 'S':
                 __bookLoadCheck(sortBookCall)
             case 'Q':
-                print("Thank You for using our program\nBye Bye!")
-                break
+                # Wrote by: Dylan Fortier 101221463
+                print('Quitting...')
+                break # quits the program
             case _:
                 __invalidCommand()
 
+# Function 1
 def load_dict() -> None:
         load_command = input("Enter the load data set you wish to enter: ")
-        global bookDict
+        global bookDict # make bookDict global so it can be used in any function
         bookDict = load_dataset(load_command)
+
+# Function 5
+def call_print_dictionary_category(bookDict: dict) -> None:
+    """Wrote by: Dylan Fortier 101221463/Converted to Function by: Nicholas Garth 101227727
+    Runs a user interactive print_dictionary_categroy"""
+    command = input('Enter the desired category: ') # prompts the user for the desired author
+    if __checkcategoryexists(command): # if the category exists aka is True
+        print_dictionary_category(command, bookDict)
+    else:
+        __invalidCommand() # entered an invalid command
+
+# Function 6
+def call_get_author_categories(bookDict: dict) -> None:
+    """Wrote by: Dylan Fortier 101221463/Converted to Function by: Nicholas Garth 101227727
+    Runs a user interactive get_author_categories"""
+    command = input('Enter the desired author: ') # prompts the user for the desired author
+    get_author_categories(command, bookDict)
+
+# Function 7
+def call_all_categories_for_book_title(bookDict: dict) -> None:
+    """Wrote by: Dylan Fortier 101221463/Converted to Function by: Nicholas Garth 101227727
+    Runs a user interactive all_categories_for_book_title"""
+    command = input('Enter the desired book title: ') # prompts the user for the desired title
+    all_categories_for_book_title(command, bookDict)
 
 # Function 8
 def get_book_call(book_dict: dict) -> None:
