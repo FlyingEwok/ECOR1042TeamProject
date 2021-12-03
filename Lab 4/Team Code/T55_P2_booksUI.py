@@ -120,11 +120,13 @@ def runProgram() -> None:
 
 # Function 1
 def load_dict() -> None:
-        load_command = input("Enter the load data set you wish to enter: ")
-        global bookDict # make bookDict global so it can be used in any function
-        bookDict = load_dataset(load_command)
-        print("Dataset loaded")
-        time.sleep(1)
+    """Written by: Divya Dushyanthan 101221637
+    Loads the dataset and puts it into the dictionary"""
+    load_command = input("Enter the load data set you wish to enter: ")
+    global bookDict # make bookDict global so it can be used in any function
+    bookDict = load_dataset(load_command)
+    print("Dataset loaded")
+    time.sleep(1)
 
 # Function 2
 def command_add(book_dict : dict) -> None:
