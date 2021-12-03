@@ -8,6 +8,7 @@
 
 # Imports
 from T55_P1_load_data import load_dataset
+from T55_P2_search_modify_dataset import print_dictionary_category
 from T55_P3_sorting import sort_books_title, sort_books_ascending_rate, sort_books_descending_rate, sort_books_publisher, sort_books_category, sort_books_pageCount
 from typing import Callable
 import time
@@ -39,6 +40,11 @@ def __checkPythonVersion() -> None:
     if sys.version_info < (3, 10):
         print('Please upgrade your Python version to 3.10.0 or higher')
         sys.exit()
+
+def __checkCategoryExists(userInput: str) -> bool:
+    for i in bookDict:
+        if userInput == i:
+            return True
 
 # User Input Functions
 def runProgram() -> None:
@@ -77,7 +83,7 @@ def runProgram() -> None:
             case 'F':
                 pass # Replace pass with function associated
             case 'NC':
-                pass # Replace pass with function associated
+                __bookLoadCheck(call_print_dictionary_category)
             case 'CA':
                 pass # Replace pass with function associated
             case 'CB':
@@ -130,6 +136,16 @@ def sortBookCall(bookDict: dict) -> None:
                 break
             case _:
                 __invalidCommand()
+
+def call_print_dictionary_category(bookDict: dict):
+    while True:
+        categoryToSearch = input("Enter a category: ")
+        if __checkCategoryExists(categoryToSearch):
+            print_dictionary_category(categoryToSearch, bookDict)
+            time.sleep(3)
+            break
+        else:
+            print("\nCategory not in this dictionary\nPlease Try Again.")
 
 # Run the program
 runProgram()
