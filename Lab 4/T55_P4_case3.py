@@ -1,7 +1,11 @@
 #Spencer Green 101196310
+
+# PLEASE UPDATE YOUR PYTHON VERSION TO 3.10 IF YOU HAVEN'T ALREADY!!!!! PYTHON VERSION 3.10 IS CRUCIAL FOR THE CODE TO RUN!!!
+
 from T55_P1_load_data import load_dataset
 from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate
 import time
+
 def __invalidCommand() -> None:
     """Written by Nicholas Garth 101227727
     Prints Invalid Command and passes (error handling)"""
@@ -18,7 +22,7 @@ def get_book_call(book_dict: dict) -> None:
     Enter an upper-case letter seen above to determine the way books are to be retrieved: 
     """
     while True:
-        print("\nR)ate A)uthor P)ublisher C)ategory CT)Category and Title CR)Category and Rate.")
+        print("\nR)ate A)uthor P)ublisher C)ategory CT)Category and Title CR)Category and Rate RE)turn.")
         user_input = input("Enter an upper-case letter seen above to determine the way books are to be retrieved: " )
         match user_input:
             case 'R':
@@ -40,7 +44,10 @@ def get_book_call(book_dict: dict) -> None:
                 category_input = input("Enter the desired book category: ")
                 rate_input = input("Enter the desired book rating: ")
                 get_book_by_category_and_rate(category_input, rate_input, book_dict)
+            case 'RE':
+                break 
             case _: 
                 __invalidCommand()
+            
 
 y = get_book_call(load_dataset('Google_Books_Dataset.csv'))
