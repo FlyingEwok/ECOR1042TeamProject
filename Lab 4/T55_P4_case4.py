@@ -38,14 +38,14 @@ def sortBookCall(bookDict: dict) -> None:
     while True:
         print("\nT)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn")
         userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
-        match userInput:
+        match userInput.upper():
             case 'T':
                 sort_books_title(bookDict)
             case 'R':
                 while True: # Ask the user if they want ascending or descending order
                     print("\nA)scending   D)escending    RE)turn")
                     userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
-                    match userInput:
+                    match userInput.upper():
                         case 'A':
                             sort_books_ascending_rate(bookDict)
                         case 'D':

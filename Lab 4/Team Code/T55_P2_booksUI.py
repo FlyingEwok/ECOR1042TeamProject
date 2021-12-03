@@ -72,7 +72,7 @@ def runProgram() -> None:
     while True:
         print("\n1- Command Line L)oad file\n2- Command Line A)dd book\n3- Command Line R)emove book\n4- Command Line F)ind book by title\n5- Command Line NC) Number of books in a category\n6- Command Line CA) Categories for an author\n7- Command Line CB) Categories for a book title\n8- Command Line G)et book\n9- Command Line S)ort book\n10-Command line Q)uit")
         userInput = input("\nEnter the upper-case letter to the left of the bracket of the option you want: ")
-        match userInput:
+        match userInput.upper():
             case 'L':
                 global bookDict # make bookDict global so it can be used in any function
                 bookDict = load_dataset('Google_Books_Dataset.csv') # REPLACE WHAT THIS VAR = WITH THE LOADFILE FUNCTION!!!!!
@@ -110,14 +110,14 @@ def sortBookCall(bookDict: dict) -> None:
     while True:
         print("\nT)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn")
         userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
-        match userInput:
+        match userInput.upper():
             case 'T':
                 sort_books_title(bookDict)
             case 'R':
                 while True: # Ask the user if they want ascending or descending order
                     print("\nA)scending   D)escending    RE)turn")
                     userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
-                    match userInput:
+                    match userInput.upper():
                         case 'A':
                             sort_books_ascending_rate(bookDict)
                         case 'D':
