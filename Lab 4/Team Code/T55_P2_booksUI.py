@@ -34,13 +34,6 @@ def __bookLoadCheck(command: Callable) -> None:
         print("Please load the file first!")
         time.sleep(1) # Make it sleep so user can read it before it gets pushed up
 
-def __checkPythonVersion() -> None:
-    """Written by Nicholas Garth 101227727
-    Check the version of Python the user is running and terminate if they aren't"""
-    if sys.version_info < (3, 10):
-        print('Please upgrade your Python version to 3.10.0 or higher')
-        sys.exit()
-
 def __checkcategoryexists(userinput:str)->bool:
     """Wrote by: Dylan Fortier 101221463
     Checks if a category exists in a dictionary"""
@@ -85,9 +78,6 @@ def runProgram() -> None:
 
     Enter the upper-case letter to the left of the bracket of the option you want:
     """
-    # Check what Python version the user is running and if running an old version terminate and tell them to upgrade
-    __checkPythonVersion() 
-
     # Keep running the program until user quits
     while True:
         print("\n1- Command Line L)oad file\n2- Command Line A)dd book\n3- Command Line R)emove book\n4- Command Line F)ind book by title\n5- Command Line NC) Number of books in a category\n6- Command Line CA) Categories for an author\n7- Command Line CB) Categories for a book title\n8- Command Line G)et book\n9- Command Line S)ort book\n10-Command line Q)uit")
@@ -183,7 +173,7 @@ def get_book_call(book_dict: dict) -> None:
     Enter an upper-case letter seen above to determine the way books are to be retrieved: 
     """
     while True:
-        print("\nR)ate A)uthor P)ublisher C)ategory CT)Category and Title CR)Category and Rate RE)turn.")
+        print("\nR)ate\tA)uthor\tP)ublisher\tC)ategory\tCT)Category and Title\tCR)Category and Rate\tRE)turn.")
         user_input = input("Enter an upper-case letter seen above to determine the way books are to be retrieved: " )
         match user_input.upper():
             case 'R':
@@ -220,14 +210,14 @@ def sortBookCall(bookDict: dict) -> None:
     """
     # Keep running the program until user returns to previous menu
     while True:
-        print("\nT)itle   R)ate   P)ublisher  C)ategory   PA)ageCount    RE)turn")
+        print("\nT)itle\tR)ate\tP)ublisher\tC)ategory\tPA)ageCount\tRE)turn")
         userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
         match userInput.upper():
             case 'T':
                 sort_books_title(bookDict)
             case 'R':
                 while True: # Ask the user if they want ascending or descending order
-                    print("\nA)scending   D)escending    RE)turn")
+                    print("\nA)scending\tD)escending\tRE)turn")
                     userInput = input("Enter the upper-case letter to the left of the bracket of the option you want: ")
                     match userInput.upper():
                         case 'A':
