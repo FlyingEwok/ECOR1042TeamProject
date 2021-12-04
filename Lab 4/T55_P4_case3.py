@@ -5,7 +5,7 @@
 from T55_P1_load_data import load_dataset
 from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate
 import time
-
+from typing import Callable
 def __invalidCommand() -> None:
     """Written by Nicholas Garth 101227727
     Prints Invalid Command and passes (error handling)"""
@@ -24,7 +24,7 @@ def get_book_call(book_dict: dict) -> None:
     while True:
         print("\nR)ate A)uthor P)ublisher C)ategory CT)Category and Title CR)Category and Rate RE)turn.")
         user_input = input("Enter an upper-case letter seen above to determine the way books are to be retrieved: " )
-        match user_input:
+        match user_input.upper():
             case 'R':
                 rate_input = input("Enter the desired book rating: ")
                 get_books_by_rate(float(rate_input), book_dict)
