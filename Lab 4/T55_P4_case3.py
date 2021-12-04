@@ -5,7 +5,8 @@
 from T55_P1_load_data import load_dataset
 from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate
 import time
-from typing import Callable
+
+#Helper function used when an invalid command is entered into the interface
 def __invalidCommand() -> None:
     """Written by Nicholas Garth 101227727
     Prints Invalid Command and passes (error handling)"""
@@ -13,6 +14,7 @@ def __invalidCommand() -> None:
     time.sleep(1) # Make it sleep so user can read it before it gets pushed up
     pass
 
+#Function 8
 def get_book_call(book_dict: dict) -> None:
     """
     Function designed by Spencer Green
@@ -49,5 +51,5 @@ def get_book_call(book_dict: dict) -> None:
             case _: 
                 __invalidCommand()
             
-
+#Call on Function 8 to be tested in this module(Acts as if dataset was loaded and G) command was entered)
 y = get_book_call(load_dataset('Google_Books_Dataset.csv'))
