@@ -44,7 +44,7 @@ def get_book_call(book_dict: dict) -> None:
                 all_categories_for_book_title(title_input, book_dict)
             case 'CR':
                 category_input = input("Enter the desired book category: ")
-                rate_input = input("Enter the desired book rating: ")
+                rate_input = float(input("Enter the desired book rating: "))
                 get_book_by_category_and_rate(category_input, rate_input, book_dict)
             case 'RE':
                 break 
