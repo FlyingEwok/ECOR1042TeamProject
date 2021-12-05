@@ -41,11 +41,11 @@ def __checkcategoryexists(userinput:str)->bool:
         if userinput == category:
             return True
 
-def __book_info() -> tuple:
-        """Written by: Divya Dushyanthan 101221637
+def book_info() -> tuple:
+        """
+        Written by Divya Dushyanthan 101221637
         Returns a tuple for the info inputted, used in add book function command
-        
-        >>> book_info()
+        >>>> book_info()
         (Old Yeller, Fred Gipson, 4.7, HarperCollins, Fiction, 144, Language)
         """
         title = input("Enter the title of the book you would like to add: ")
@@ -120,22 +120,28 @@ def load_dict() -> None:
 
 # Function 2
 def command_add(book_dict : dict) -> None:
-    """Written by: Divya Dushyanthan 101221637
-    Executes add_book"""
-    add_book(book_dict, __book_info())
+    """
+    Written by Divya Dushyanthan 101221637
+    Returns none. The function takes in book_dict and passes it and the tuple from book_info into the add book function.
+    """
+    add_book(book_dict, book_info())
 
 # Function 3
 def command_remove(book_dict : dict) -> None:
-    """Written by: Divya Dushyanthan 101221637
-    Removes a entry from dictionary given the users request"""
+    """
+    Written by Divya Dushyanthan 101221637
+    Returns none. The function takes in book_dict, passes it aswell as collects the title and category into the remove book function.
+    """
     title = input("Enter the title of the book you would like to remove: ")
     category = input("Enter the category of the book you would like to remove: ")
     r_command = remove_book(title,category, book_dict)
 
 # Function 4
 def command_find(book_dict : dict)-> None:
-    """Written by: Divya Dushyanthan 101221637
-    Finds a book based on title given users request"""
+    """
+    Written by Divya Dushyanthan 101221637
+    Returns none. The function takes in book_dict, passes it aswell as collects the title puts into the find book function.
+    """
     title = input("Enter the title of the book you would like to find: ")
     f_command = find_books_by_title(title, book_dict) 
 
@@ -173,7 +179,7 @@ def get_book_call(book_dict: dict) -> None:
     Enter an upper-case letter seen above to determine the way books are to be retrieved: 
     """
     while True:
-        print("\nR)ate\tA)uthor\tP)ublisher\tC)ategory\tCT)Category and Title\tCR)Category and Rate\tRE)turn.")
+        print("\nR)ate A)uthor P)ublisher C)ategory CT)Category and Title CR)Category and Rate RE)turn.")
         user_input = input("Enter an upper-case letter seen above to determine the way books are to be retrieved: " )
         match user_input.upper():
             case 'R':
@@ -193,7 +199,7 @@ def get_book_call(book_dict: dict) -> None:
                 all_categories_for_book_title(title_input, book_dict)
             case 'CR':
                 category_input = input("Enter the desired book category: ")
-                rate_input = input("Enter the desired book rating: ")
+                rate_input = float(input("Enter the desired book rating: "))
                 get_book_by_category_and_rate(category_input, rate_input, book_dict)
             case 'RE':
                 break 
