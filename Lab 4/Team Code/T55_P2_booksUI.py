@@ -12,7 +12,6 @@ from T55_P3_sorting import sort_books_title, sort_books_ascending_rate, sort_boo
 from T55_P2_search_modify_dataset import get_books_by_rate, get_books_by_author, get_books_by_publisher,  get_books_by_category,all_categories_for_book_title, get_book_by_category_and_rate, print_dictionary_category, get_author_categories, all_categories_for_book_title, add_book , remove_book , find_books_by_title
 from typing import Callable
 import time
-import sys
 
 # Helper Functions
 def __invalidCommand() -> None:
