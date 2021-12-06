@@ -6,7 +6,7 @@ Divya Dushyanthan
 divyadushyanthan@cmail.carleton.ca
 
 ## Date
-Date last modified: Monday December 6th 2021
+Project Version 1.0.0: Monday December 6th 2021
 
 ## Software's Name and version
 Data Analyzer - 1.0.0
@@ -15,10 +15,10 @@ Data Analyzer - 1.0.0
 The project contains a single program consisting of multiple modules. A menu of 10 command lines appear for the user to choose from. The program will run until the user enters Q which will quit the program.
 
 ## Installation
-### Python 3.10:
-#### Windows: 
+### Python 3.10 or newer:
+### Windows: 
 Download Python 3.10 [here](https://www.python.org/downloads/)
-#### Linux:
+### Linux:
 ##### Ubuntu:
 ```bash
 sudo add-apt-repository ppa:deadsnakes/ppa
