@@ -45,11 +45,10 @@ python T55_P2_booksUI.py
 from T55_P2_booksUI import runProgram
 ```
 ## Credits
-
-
+Stuff goes here
 
 ## License 
-MIT License
+[MIT](https://choosealicense.com/licenses/mit/) License
 
 Copyright (c) 2021 Nicholas Garth, Divya Dushyanthan, Spencer Green, Dylan Fortier
 
