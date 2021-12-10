@@ -52,10 +52,10 @@ python T55_P2_booksUI.py
 from T55_P2_booksUI import runProgram
 ```
 ## Credits
-Divya Dushyanthan
 Nicholas Garth
 Spencer Green
 Dylan Fortier
+Divya Dushyanthan
 ## License 
 [MIT](https://choosealicense.com/licenses/mit/) License
 
