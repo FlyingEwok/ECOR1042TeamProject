@@ -14,6 +14,13 @@ Data Analyzer - 1.0.0
 ## Description
 The project contains a single program consisting of multiple modules. A menu of 10 command lines appear for the user to choose from. The program will run until the user enters Q which will quit the program.
 
+The project is made up of multiple files :
+P5_T55_load_dataset.py              Python Script
+T55_P2_search_modify_dataset.py     Python Script
+T55_P3_sorting.py                   Python Script
+T55_P2_booksUI.py                   Python Script
+
+
 ## Installation
 ### Python 3.10 or newer:
 ### Windows: 
@@ -45,12 +52,14 @@ python T55_P2_booksUI.py
 from T55_P2_booksUI import runProgram
 ```
 ## Credits
-Stuff goes here
-
+Nicholas Garth 101227727
+Spencer Green 101196310
+Dylan Fortier 101221463
+Divya Dushyanthan 101221637
 ## License 
 [MIT](https://choosealicense.com/licenses/mit/) License
 
-Copyright (c) 2021 Nicholas Garth, Divya Dushyanthan, Spencer Green, Dylan Fortier
+Copyright (c) 2021 Overworked, Unpaid
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
